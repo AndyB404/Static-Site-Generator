@@ -1,3 +1,7 @@
+#tag is the HTML tag like "b", "i", "a" — or None for plain text
+#value is the text content
+#props is an optional dictionary like {"href": "https://example.com"}
+
 class HTMLNode:
     def __init__(self, tag=None, value=None, children=None, props=None):
         self.tag = tag
