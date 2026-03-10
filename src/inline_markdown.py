@@ -30,6 +30,7 @@ def extract_markdown_links(text):
     matches = re.findall(r"(?<!!)\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
     return matches
 
+#look for the image pattern ![alt](url) and it always creates nodes with TextType.IMAGE
 def split_nodes_image(old_nodes):
     new_nodes = []
     for node in old_nodes:
@@ -49,6 +50,7 @@ def split_nodes_image(old_nodes):
             new_nodes.append(TextNode(current_text, TextType.TEXT))
     return new_nodes
 
+#looks for the link pattern [anchor](url) and always creates nodes with TextType.LINK
 def split_nodes_link(old_nodes):
     new_nodes = []
     for node in old_nodes:
@@ -68,3 +70,13 @@ def split_nodes_link(old_nodes):
             new_nodes.append(TextNode(current_text, TextType.TEXT))
     return new_nodes
 
+# uses each split function to create a list of TextNode objects corresponding to the TextType
+def text_to_textnodes(text):
+    nodes = [TextNode(text, TextType.TEXT)]
+    nodes = split_nodes_delimiter(nodes, "**", TextType.BOLD)
+    nodes = split_nodes_delimiter(nodes, "_", TextType.ITALIC)
+    nodes = split_nodes_delimiter(nodes, "`", TextType.CODE)
+    nodes = split_nodes_image(nodes)   
+    nodes = split_nodes_link(nodes)
+    return nodes
+    
