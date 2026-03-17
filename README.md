@@ -1,6 +1,6 @@
 # Static Site Generator
 
-This is a project developed as part of the [Boot.dev](https://www.boot.dev) backend engineering curriculum. It is a tool designed to take content (like Markdown) and generate a full static HTML website.
+This is a project developed as part of the [Boot.dev](https://www.boot.dev) backend engineering curriculum. It is a tool designed to take content (like Markdown) and generate a full static HTML website. Not all of the code here is my own. Some has been provided by the boot.dev course and I have used their resources to help me make this project.
 
 ## Features
 
