@@ -1,6 +1,15 @@
-from textnode import TextNode, TextType
+import os, shutil
+from copystatic import source_to_destination
+
+dir_path_static = "./static"
+dir_path_public = "./public"
 
 def main():
-    print(TextNode("This is some anchor text", TextType.LINK, "https://www.boot.dev"))
+    if os.path.exists(dir_path_public):
+        shutil.rmtree(dir_path_public)
+    source_to_destination(dir_path_static, dir_path_public)
 
 main()
+
+
+       
