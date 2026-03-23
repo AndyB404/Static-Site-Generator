@@ -4,17 +4,25 @@ This is a project developed as part of the [Boot.dev](https://www.boot.dev) back
 
 ## Features
 
-- Converts text-based content into HTML.
-- Handles directory mirroring for static assets.
-- Built entirely in Python.
+- **Markdown to HTML**: Converts your `.md` files into HTML pages using a shared template.
+- **Static Asset Copying**: Copies images, CSS, and other files straight into the output directory.
+- **Modular Design**: Each part of the pipeline (parsing, rendering, copying) is kept separate and easy to extend.
 
-## How to Run
+### Prerequisites
+- Python 3.10 or higher
 
-Currently, the project contains a static `public` directory. To view the site locally:
+### Generate the Site
 
-1. Navigate to the `public` directory:
-   cd public
-2. Start the Python HTTP server:
-    python3 -m http.server 8888
-3. Open your browser to: 
-    http://localhost:8888
+To build for local development and serve at `http://localhost:8888/`, run:
+
+./main.sh
+
+To build for production (GitHub Pages) into the /docs directory, run:
+
+./build.sh
+
+### Development
+The project includes a suite of unit tests to ensure the Markdown parsing logic remains robust. Run them with:
+
+./test.sh
+
